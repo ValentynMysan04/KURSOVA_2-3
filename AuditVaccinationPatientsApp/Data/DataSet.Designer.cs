@@ -1113,6 +1113,20 @@ namespace AuditVaccinationPatientsApp.Data {
             
             private global::System.Data.DataColumn columnPatientVactinationsID;
             
+            private global::System.Data.DataColumn columnPatientID;
+            
+            private global::System.Data.DataColumn columnPatientName;
+            
+            private global::System.Data.DataColumn columnDateOfVaccination;
+            
+            private global::System.Data.DataColumn columnVaccineID;
+            
+            private global::System.Data.DataColumn columnVaccineName;
+            
+            private global::System.Data.DataColumn columnDoctorID;
+            
+            private global::System.Data.DataColumn columnDoctorName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PatientVactinationsDataTable() {
@@ -1156,6 +1170,62 @@ namespace AuditVaccinationPatientsApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PatientIDColumn {
+                get {
+                    return this.columnPatientID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PatientNameColumn {
+                get {
+                    return this.columnPatientName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DateOfVaccinationColumn {
+                get {
+                    return this.columnDateOfVaccination;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn VaccineIDColumn {
+                get {
+                    return this.columnVaccineID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn VaccineNameColumn {
+                get {
+                    return this.columnVaccineName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DoctorIDColumn {
+                get {
+                    return this.columnDoctorID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DoctorNameColumn {
+                get {
+                    return this.columnDoctorName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1191,10 +1261,17 @@ namespace AuditVaccinationPatientsApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PatientVactinationsRow AddPatientVactinationsRow() {
+            public PatientVactinationsRow AddPatientVactinationsRow(int PatientID, string PatientName, System.DateTime DateOfVaccination, int VaccineID, string VaccineName, int DoctorID, string DoctorName) {
                 PatientVactinationsRow rowPatientVactinationsRow = ((PatientVactinationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null};
+                        null,
+                        PatientID,
+                        PatientName,
+                        DateOfVaccination,
+                        VaccineID,
+                        VaccineName,
+                        DoctorID,
+                        DoctorName};
                 rowPatientVactinationsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPatientVactinationsRow);
                 return rowPatientVactinationsRow;
@@ -1225,6 +1302,13 @@ namespace AuditVaccinationPatientsApp.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnPatientVactinationsID = base.Columns["PatientVactinationsID"];
+                this.columnPatientID = base.Columns["PatientID"];
+                this.columnPatientName = base.Columns["PatientName"];
+                this.columnDateOfVaccination = base.Columns["DateOfVaccination"];
+                this.columnVaccineID = base.Columns["VaccineID"];
+                this.columnVaccineName = base.Columns["VaccineName"];
+                this.columnDoctorID = base.Columns["DoctorID"];
+                this.columnDoctorName = base.Columns["DoctorName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1232,6 +1316,20 @@ namespace AuditVaccinationPatientsApp.Data {
             private void InitClass() {
                 this.columnPatientVactinationsID = new global::System.Data.DataColumn("PatientVactinationsID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPatientVactinationsID);
+                this.columnPatientID = new global::System.Data.DataColumn("PatientID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPatientID);
+                this.columnPatientName = new global::System.Data.DataColumn("PatientName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPatientName);
+                this.columnDateOfVaccination = new global::System.Data.DataColumn("DateOfVaccination", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateOfVaccination);
+                this.columnVaccineID = new global::System.Data.DataColumn("VaccineID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVaccineID);
+                this.columnVaccineName = new global::System.Data.DataColumn("VaccineName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVaccineName);
+                this.columnDoctorID = new global::System.Data.DataColumn("DoctorID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDoctorID);
+                this.columnDoctorName = new global::System.Data.DataColumn("DoctorName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDoctorName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPatientVactinationsID}, true));
                 this.columnPatientVactinationsID.AutoIncrement = true;
@@ -1240,6 +1338,8 @@ namespace AuditVaccinationPatientsApp.Data {
                 this.columnPatientVactinationsID.AllowDBNull = false;
                 this.columnPatientVactinationsID.ReadOnly = true;
                 this.columnPatientVactinationsID.Unique = true;
+                this.columnPatientName.MaxLength = 60;
+                this.columnVaccineName.MaxLength = 84;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1379,6 +1479,10 @@ namespace AuditVaccinationPatientsApp.Data {
             
             private global::System.Data.DataColumn columnAgeInDays;
             
+            private global::System.Data.DataColumn columnAge;
+            
+            private global::System.Data.DataColumn columnVaccineName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public VaccinesDataTable() {
@@ -1438,6 +1542,22 @@ namespace AuditVaccinationPatientsApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AgeColumn {
+                get {
+                    return this.columnAge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn VaccineNameColumn {
+                get {
+                    return this.columnVaccineName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1473,12 +1593,14 @@ namespace AuditVaccinationPatientsApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VaccinesRow AddVaccinesRow(int Mandatory, int AgeInDays) {
+            public VaccinesRow AddVaccinesRow(int Mandatory, int AgeInDays, string Age, string VaccineName) {
                 VaccinesRow rowVaccinesRow = ((VaccinesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Mandatory,
-                        AgeInDays};
+                        AgeInDays,
+                        Age,
+                        VaccineName};
                 rowVaccinesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVaccinesRow);
                 return rowVaccinesRow;
@@ -1504,6 +1626,8 @@ namespace AuditVaccinationPatientsApp.Data {
                 this.columnVaccineID = base.Columns["VaccineID"];
                 this.columnMandatory = base.Columns["Mandatory"];
                 this.columnAgeInDays = base.Columns["AgeInDays"];
+                this.columnAge = base.Columns["Age"];
+                this.columnVaccineName = base.Columns["VaccineName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1515,6 +1639,10 @@ namespace AuditVaccinationPatientsApp.Data {
                 base.Columns.Add(this.columnMandatory);
                 this.columnAgeInDays = new global::System.Data.DataColumn("AgeInDays", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAgeInDays);
+                this.columnAge = new global::System.Data.DataColumn("Age", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAge);
+                this.columnVaccineName = new global::System.Data.DataColumn("VaccineName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVaccineName);
                 this.columnVaccineID.AutoIncrement = true;
                 this.columnVaccineID.AutoIncrementSeed = -1;
                 this.columnVaccineID.AutoIncrementStep = -1;
@@ -1522,6 +1650,8 @@ namespace AuditVaccinationPatientsApp.Data {
                 this.columnVaccineID.ReadOnly = true;
                 this.columnMandatory.AllowDBNull = false;
                 this.columnAgeInDays.AllowDBNull = false;
+                this.columnAge.MaxLength = 13;
+                this.columnVaccineName.MaxLength = 84;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1935,6 +2065,203 @@ namespace AuditVaccinationPatientsApp.Data {
                     this[this.tablePatientVactinations.PatientVactinationsIDColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int PatientID {
+                get {
+                    try {
+                        return ((int)(this[this.tablePatientVactinations.PatientIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PatientID\' in table \'PatientVactinations\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePatientVactinations.PatientIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PatientName {
+                get {
+                    try {
+                        return ((string)(this[this.tablePatientVactinations.PatientNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PatientName\' in table \'PatientVactinations\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePatientVactinations.PatientNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime DateOfVaccination {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablePatientVactinations.DateOfVaccinationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateOfVaccination\' in table \'PatientVactinations\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tablePatientVactinations.DateOfVaccinationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int VaccineID {
+                get {
+                    try {
+                        return ((int)(this[this.tablePatientVactinations.VaccineIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VaccineID\' in table \'PatientVactinations\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePatientVactinations.VaccineIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string VaccineName {
+                get {
+                    try {
+                        return ((string)(this[this.tablePatientVactinations.VaccineNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VaccineName\' in table \'PatientVactinations\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePatientVactinations.VaccineNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int DoctorID {
+                get {
+                    try {
+                        return ((int)(this[this.tablePatientVactinations.DoctorIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DoctorID\' in table \'PatientVactinations\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePatientVactinations.DoctorIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DoctorName {
+                get {
+                    try {
+                        return ((string)(this[this.tablePatientVactinations.DoctorNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DoctorName\' in table \'PatientVactinations\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePatientVactinations.DoctorNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPatientIDNull() {
+                return this.IsNull(this.tablePatientVactinations.PatientIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPatientIDNull() {
+                this[this.tablePatientVactinations.PatientIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPatientNameNull() {
+                return this.IsNull(this.tablePatientVactinations.PatientNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPatientNameNull() {
+                this[this.tablePatientVactinations.PatientNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDateOfVaccinationNull() {
+                return this.IsNull(this.tablePatientVactinations.DateOfVaccinationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDateOfVaccinationNull() {
+                this[this.tablePatientVactinations.DateOfVaccinationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsVaccineIDNull() {
+                return this.IsNull(this.tablePatientVactinations.VaccineIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetVaccineIDNull() {
+                this[this.tablePatientVactinations.VaccineIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsVaccineNameNull() {
+                return this.IsNull(this.tablePatientVactinations.VaccineNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetVaccineNameNull() {
+                this[this.tablePatientVactinations.VaccineNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDoctorIDNull() {
+                return this.IsNull(this.tablePatientVactinations.DoctorIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDoctorIDNull() {
+                this[this.tablePatientVactinations.DoctorIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDoctorNameNull() {
+                return this.IsNull(this.tablePatientVactinations.DoctorNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDoctorNameNull() {
+                this[this.tablePatientVactinations.DoctorNameColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1982,6 +2309,62 @@ namespace AuditVaccinationPatientsApp.Data {
                 set {
                     this[this.tableVaccines.AgeInDaysColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Age {
+                get {
+                    try {
+                        return ((string)(this[this.tableVaccines.AgeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Age\' in table \'Vaccines\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVaccines.AgeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string VaccineName {
+                get {
+                    try {
+                        return ((string)(this[this.tableVaccines.VaccineNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VaccineName\' in table \'Vaccines\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVaccines.VaccineNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAgeNull() {
+                return this.IsNull(this.tableVaccines.AgeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAgeNull() {
+                this[this.tableVaccines.AgeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsVaccineNameNull() {
+                return this.IsNull(this.tableVaccines.VaccineNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetVaccineNameNull() {
+                this[this.tableVaccines.VaccineNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3650,7 +4033,7 @@ SELECT PatientVactinationsID, PatientID, VaccineID, DateOfVaccination, DoctorID,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PatientVactinationsID FROM PatientVactinations";
@@ -3663,42 +4046,56 @@ SELECT PatientVactinationsID, PatientID, VaccineID, DateOfVaccination, DoctorID,
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientVactinationsID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PatientVactinationsID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        pv.PatientVactinationsID, p.LastName + ' ' + p.FirstName + ' ' + p.MiddleName AS PatientName, v.VaccineID, v.VaccineName, pv.DateOfVaccination, d.LastName + ' ' + d.FirstName + ' ' + d.MiddleName AS DoctorName
-FROM            PatientVactinations AS pv LEFT OUTER JOIN
-                         Patients AS p ON p.PatientID = pv.PatientID LEFT OUTER JOIN
-                         Vaccines AS v ON v.VaccineID = pv.VaccineID LEFT OUTER JOIN
-                         Doctors AS d ON d.DoctorID = pv.DoctorID
-WHERE        (pv.PatientID = @PatientID)
+            this._commandCollection[2].CommandText = @"SELECT IsNull(pv.PatientVactinationsID, -1) AS PatientVactinationsID,
+	p.PatientID, p.LastName + ' ' + p.FirstName + ' ' + p.MiddleName AS PatientName, 
+	pv.DateOfVaccination, 
+	v.VaccineID, v.VaccineName, 
+	d.DoctorID, d.LastName + ' ' + d.FirstName + ' ' + d.MiddleName AS DoctorName
+FROM Patients p 
+LEFT OUTER JOIN PatientVactinations AS pv ON p.PatientID = pv.PatientID 
+LEFT OUTER JOIN Vaccines AS v ON v.VaccineID = pv.VaccineID 
+LEFT OUTER JOIN Doctors AS d ON d.DoctorID = pv.DoctorID
+WHERE (p.PatientID = @PatientID)
 ORDER BY pv.PatientID, p.LastName, p.FirstName, p.MiddleName, pv.DateOfVaccination";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PatientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"INSERT INTO [dbo].[PatientVactinations] ([PatientID], [VaccineID], [DateOfVaccination], [DoctorID], [NurseID]) VALUES (@PatientID, @VaccineID, @DateOfVaccination, @DoctorID, @NurseID);
-SELECT PatientVactinationsID, PatientID, VaccineID, DateOfVaccination, DoctorID, NurseID FROM PatientVactinations WHERE (PatientVactinationsID = SCOPE_IDENTITY())";
+            this._commandCollection[3].CommandText = @"SELECT      pv.PatientVactinationsID, 
+	pv.PatientID, p.LastName + ' ' + p.FirstName + ' ' + p.MiddleName AS PatientName, 
+	pv.DateOfVaccination, 
+	v.VaccineID, v.VaccineName, 
+	d.DoctorID, d.LastName + ' ' + d.FirstName + ' ' + d.MiddleName AS DoctorName
+FROM            PatientVactinations AS pv LEFT OUTER JOIN
+                         Patients AS p ON p.PatientID = pv.PatientID LEFT OUTER JOIN
+                         Vaccines AS v ON v.VaccineID = pv.VaccineID LEFT OUTER JOIN
+                         Doctors AS d ON d.DoctorID = pv.DoctorID
+WHERE (pv.PatientVactinationsID = @PatientVactinationsID)
+ORDER BY pv.PatientID, p.LastName, p.FirstName, p.MiddleName, pv.DateOfVaccination";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PatientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VaccineID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "VaccineID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfVaccination", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfVaccination", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DoctorID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NurseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "NurseID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientVactinationsID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PatientVactinationsID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"UPDATE [dbo].[PatientVactinations] SET [PatientID] = @PatientID, [VaccineID] = @VaccineID, [DateOfVaccination] = @DateOfVaccination, [DoctorID] = @DoctorID, [NurseID] = @NurseID WHERE (([PatientVactinationsID] = @Original_PatientVactinationsID) AND ([PatientID] = @Original_PatientID) AND ([VaccineID] = @Original_VaccineID) AND ([DateOfVaccination] = @Original_DateOfVaccination) AND ((@IsNull_DoctorID = 1 AND [DoctorID] IS NULL) OR ([DoctorID] = @Original_DoctorID)) AND ((@IsNull_NurseID = 1 AND [NurseID] IS NULL) OR ([NurseID] = @Original_NurseID)));
-SELECT PatientVactinationsID, PatientID, VaccineID, DateOfVaccination, DoctorID, NurseID FROM PatientVactinations WHERE (PatientVactinationsID = @PatientVactinationsID)";
+            this._commandCollection[4].CommandText = @"INSERT INTO [dbo].[PatientVactinations] ([PatientID], [VaccineID], [DateOfVaccination], [DoctorID], [NurseID]) VALUES (@PatientID, @VaccineID, @DateOfVaccination, @DoctorID, @NurseID);
+SELECT PatientVactinationsID, PatientID, VaccineID, DateOfVaccination, DoctorID, NurseID FROM PatientVactinations WHERE (PatientVactinationsID = SCOPE_IDENTITY())";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PatientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VaccineID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "VaccineID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfVaccination", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfVaccination", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DoctorID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NurseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "NurseID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientVactinationsID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PatientVactinationsID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PatientID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VaccineID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "VaccineID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateOfVaccination", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfVaccination", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DoctorID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NurseID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NurseID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientVactinationsID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PatientVactinationsID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "UPDATE [dbo].[PatientVactinations] \r\nSET [PatientID] = @PatientID, [VaccineID] = " +
+                "@VaccineID, [DateOfVaccination] = @DateOfVaccination, [DoctorID] = @DoctorID, [N" +
+                "urseID] = @NurseID \r\nWHERE [PatientVactinationsID] = @PatientVactinationsID";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PatientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VaccineID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "VaccineID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfVaccination", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfVaccination", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DoctorID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NurseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "NurseID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientVactinationsID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PatientVactinationsID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3732,6 +4129,18 @@ SELECT PatientVactinationsID, PatientID, VaccineID, DateOfVaccination, DoctorID,
         public virtual DataSet1.PatientVactinationsDataTable GetDataByPatientID(int PatientID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PatientID));
+            DataSet1.PatientVactinationsDataTable dataTable = new DataSet1.PatientVactinationsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet1.PatientVactinationsDataTable GetDataByPatientVaccinationID(int PatientVactinationsID) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PatientVactinationsID));
             DataSet1.PatientVactinationsDataTable dataTable = new DataSet1.PatientVactinationsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -3918,7 +4327,7 @@ SELECT PatientVactinationsID, PatientID, VaccineID, DateOfVaccination, DoctorID,
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertPatientVaccination(int PatientID, int VaccineID, string DateOfVaccination, global::System.Nullable<int> DoctorID, global::System.Nullable<int> NurseID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             command.Parameters[0].Value = ((int)(PatientID));
             command.Parameters[1].Value = ((int)(VaccineID));
             if ((DateOfVaccination == null)) {
@@ -3960,8 +4369,8 @@ SELECT PatientVactinationsID, PatientID, VaccineID, DateOfVaccination, DoctorID,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdatePatientVaccination(int PatientID, int VaccineID, string DateOfVaccination, global::System.Nullable<int> DoctorID, global::System.Nullable<int> NurseID, int Original_PatientVactinationsID, int Original_PatientID, int Original_VaccineID, string Original_DateOfVaccination, global::System.Nullable<int> IsNull_DoctorID, global::System.Nullable<int> IsNull_NurseID, int PatientVactinationsID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+        public virtual int UpdatePatientVaccination(int PatientID, int VaccineID, string DateOfVaccination, global::System.Nullable<int> DoctorID, global::System.Nullable<int> NurseID, int PatientVactinationsID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             command.Parameters[0].Value = ((int)(PatientID));
             command.Parameters[1].Value = ((int)(VaccineID));
             if ((DateOfVaccination == null)) {
@@ -3982,28 +4391,7 @@ SELECT PatientVactinationsID, PatientID, VaccineID, DateOfVaccination, DoctorID,
             else {
                 command.Parameters[4].Value = global::System.DBNull.Value;
             }
-            command.Parameters[5].Value = ((int)(Original_PatientVactinationsID));
-            command.Parameters[6].Value = ((int)(Original_PatientID));
-            command.Parameters[7].Value = ((int)(Original_VaccineID));
-            if ((Original_DateOfVaccination == null)) {
-                throw new global::System.ArgumentNullException("Original_DateOfVaccination");
-            }
-            else {
-                command.Parameters[8].Value = ((string)(Original_DateOfVaccination));
-            }
-            if ((IsNull_DoctorID.HasValue == true)) {
-                command.Parameters[9].Value = ((int)(IsNull_DoctorID.Value));
-            }
-            else {
-                command.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((IsNull_NurseID.HasValue == true)) {
-                command.Parameters[10].Value = ((int)(IsNull_NurseID.Value));
-            }
-            else {
-                command.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            command.Parameters[11].Value = ((int)(PatientVactinationsID));
+            command.Parameters[5].Value = ((int)(PatientVactinationsID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4171,12 +4559,12 @@ SELECT PatientVactinationsID, PatientID, VaccineID, DateOfVaccination, DoctorID,
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT VaccineID, Mandatory, AgeInDays FROM Vaccines";
+            this._commandCollection[0].CommandText = "SELECT VaccineID, Mandatory, AgeInDays, Age, VaccineName FROM Vaccines";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT VaccineID, Mandatory, AgeInDays, Age AS TermOrReccomendation, VaccineName " +
-                "AS VaccineNameAndDescription FROM Vaccines";
+                "AS VaccineNameAndDescription, Age, VaccineName\r\nFROM Vaccines";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         

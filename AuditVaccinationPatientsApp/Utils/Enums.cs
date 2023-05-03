@@ -11,6 +11,7 @@
 
     public enum RowState
     {
+        None,
         Add,
         Update,
         Delete

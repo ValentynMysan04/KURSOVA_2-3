@@ -1,4 +1,5 @@
 ﻿using AuditVaccinationPatientsApp.Data.DataSet1TableAdapters;
+using AuditVaccinationPatientsApp.Forms;
 using AuditVaccinationPatientsApp.Utils;
 using DevExpress.Utils.Menu;
 using DevExpress.Utils.Svg;
@@ -60,6 +61,9 @@ namespace AuditVaccinationPatientsApp
         // Local variables
 
         private int _patientID = 0;
+        private int _patientVactinationsID = 0;
+        private int _vaccineID = 0;
+        private int _doctorID = 0;
         private int _patientFocusedRowHandle = 0;
         private int _patientVacinationFocusedRowHandle = 0;
         private int _vaccineFocusedRowHandle = 0;
@@ -104,6 +108,11 @@ namespace AuditVaccinationPatientsApp
                 var palette = SvgPaletteHelper.GetSvgPalette(this.LookAndFeel, DevExpress.Utils.Drawing.ObjectState.Normal);
                 var iconSize = new Size(24, 24);
 
+                DXMenuCheckItem refreshItem = new DXMenuCheckItem(Data.Helper.GetMenuCaption(CurrentView, RowState.None), view.OptionsView.AllowCellMerge, null, new EventHandler(OnRefreshRowClick));
+                refreshItem.Tag = new RowInfo(view, rowHandle, CurrentView, RowState.None);
+                refreshItem.ImageOptions.Image = svgImageCollection1.GetImage("actions_refresh", palette, iconSize);
+                e.Menu.Items.Add(refreshItem);
+
                 DXMenuCheckItem addItem = new DXMenuCheckItem(Data.Helper.GetMenuCaption(CurrentView, RowState.Add), view.OptionsView.AllowCellMerge, null, new EventHandler(OnAddRowClick));
                 addItem.Tag = new RowInfo(view, rowHandle, CurrentView, RowState.Add);
                 addItem.ImageOptions.Image = svgImageCollection1.GetImage("actions_addcircled", palette, iconSize);
@@ -121,16 +130,55 @@ namespace AuditVaccinationPatientsApp
             }
         }
 
+        void OnRefreshRowClick(object sender, EventArgs e)
+        {
+            switch (CurrentView)
+            {
+                case ViewData.Patients:
+                    LoadPatients();
+                    break;
+                case ViewData.Vacctinations:
+                    LoadVactinations(_patientID);
+                    break;
+                case ViewData.Vaccines:
+                    LoadVaccines();
+                    break;
+                case ViewData.Doctors:
+                    LoadDoctors();
+                    break;
+                default:
+                    break;
+            }
+        }
+
         void OnAddRowClick(object sender, EventArgs e)
         {
-            gridView.FocusedRowHandle = GridControl.NewItemRowHandle;
-            gridView.SelectRow(GridControl.NewItemRowHandle);
-            gridView.ShowPopupEditForm();
+            if (CurrentView == ViewData.Vacctinations)
+            {
+                new PtientVaccinationEditForm(_patientID, _patientVactinationsID, false).ShowDialog();
+
+                LoadVactinations(_patientID);
+            }
+            else
+            {
+                gridView.FocusedRowHandle = GridControl.NewItemRowHandle;
+                gridView.SelectRow(GridControl.NewItemRowHandle);
+                gridView.ShowPopupEditForm();
+            }
         }
 
         void OnEditRowClick(object sender, EventArgs e)
         {
-            gridView.ShowPopupEditForm();
+            if (CurrentView == ViewData.Vacctinations)
+            {
+                new PtientVaccinationEditForm(_patientID, _patientVactinationsID, true).ShowDialog();
+
+                LoadVactinations(_patientID);
+            }
+            else
+            {
+                gridView.ShowPopupEditForm();
+            }
         }
 
         void OnDeleteRowClick(object sender, EventArgs e)
@@ -143,8 +191,27 @@ namespace AuditVaccinationPatientsApp
                 if (XtraMessageBox.Show(message + " ?", Data.Helper.GetConfirmCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                     return;
 
-                patient.DeletePatient(_patientID);
-                ri.View.DeleteRow(ri.RowHandle);
+                switch (CurrentView)
+                {
+                    case ViewData.Patients:
+                        patient.DeletePatient(_patientID);
+                        ri.View.DeleteRow(ri.RowHandle);
+                        break;
+                    case ViewData.Vacctinations:
+                        patientVacctinations.Delete(_patientVactinationsID);
+                        ri.View.DeleteRow(ri.RowHandle);
+                        break;
+                    case ViewData.Vaccines:
+                        XtraMessageBox.Show("Дана функція заблокована розробником", Data.Helper.GetNotificationCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //vaccines.Delete(_vaccineID)
+                        break;
+                    case ViewData.Doctors:
+                        XtraMessageBox.Show("Дана функція заблокована розробником", Data.Helper.GetNotificationCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //doctors.Delete(_doctorID);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -200,29 +267,36 @@ namespace AuditVaccinationPatientsApp
                     break;
                 case ViewData.Vacctinations:
                     {
-                        var row = (Data.DataSet1.PatientsRow)((System.Data.DataRowView)e.Row).Row;
+                        // another implementation using custom Edit Form
+                    }
+                    break;
+                case ViewData.Vaccines:
+                    {
+                        // not implemented yet
+                    }
+                    break;
+                case ViewData.Doctors:
+                    {
+                        var row = (Data.DataSet1.DoctorsRow)((System.Data.DataRowView)e.Row).Row;
 
                         string LastName = row.LastName;
                         string FirstName = row.FirstName;
                         string MiddleName = row.MiddleName;
-                        string Gender = row.Gender;
-                        string DateOfBirth = row.DateOfBirth.ToString();
-                        string SSN = row.SSN;
                         string PhoneNumber = row.PhoneNumber;
                         string Address = row.Address;
-                        int PatientID = row.PatientID;
+                        int DoctorID = row.DoctorID;
 
-                        if (PatientID < 0)
+                        if (DoctorID < 0)
                         {
-                            patient.InsertPatient(LastName, FirstName, MiddleName, Gender, DateOfBirth, SSN, PhoneNumber, Address);
+                            doctors.Insert(LastName, FirstName, MiddleName, PhoneNumber, Address);
 
-                            PatientID = patient.GetPatientID(LastName, FirstName, MiddleName, Gender, DateOfBirth, SSN, PhoneNumber, Address) ?? PatientID;
+                            //DoctorID = patient.GetPatientID(LastName, FirstName, MiddleName, PhoneNumber, Address) ?? DoctorID;
 
-                            _patientID = PatientID;
+                            _doctorID = DoctorID;
 
-                            LoadPatients();
+                            LoadDoctors();
 
-                            int rowHandle = gridView.LocateByValue("PatientID", PatientID);
+                            int rowHandle = gridView.LocateByValue("DoctorID", _doctorID);
 
                             if (rowHandle != GridControl.InvalidRowHandle)
                             {
@@ -233,18 +307,8 @@ namespace AuditVaccinationPatientsApp
                         }
                         else
                         {
-                            patient.UpdatePatient(LastName, FirstName, MiddleName, Gender, DateOfBirth, SSN, PhoneNumber, Address, PatientID);
+                            //doctors.Update(LastName, FirstName, MiddleName, PhoneNumber, Address, DoctorID);
                         }
-                    }
-                    break;
-                case ViewData.Vaccines:
-                    {
-                        // not implemented yet
-                    }
-                    break;
-                case ViewData.Doctors:
-                    {
-                        // not implemented yet
                     }
                     break;
                 case ViewData.None:
@@ -286,6 +350,10 @@ namespace AuditVaccinationPatientsApp
                 if (gridView.FocusedRowHandle < 0) return;
 
                 _patientVacinationFocusedRowHandle = gridView.FocusedRowHandle;
+
+                var patientVactinationsID = gridView.GetFocusedDataRow()["PatientVactinationsID"].ToString();
+
+                int.TryParse(patientVactinationsID, out _patientVactinationsID);
             }
 
             if (CurrentView == ViewData.Vaccines)
@@ -310,11 +378,32 @@ namespace AuditVaccinationPatientsApp
             gridView.Columns.Clear();
             gridControl.Refresh();
             gridControl.DataSource = data;
+            gridViewReconfigure(currentView);
             gridView.BestFitColumns();
             gridView.FocusedRowHandle = focusedRowHandle;
             gridView.SelectRow(gridView.FocusedRowHandle);
             gridView.Focus();
             CurrentView = currentView;
+        }
+
+        private void gridViewReconfigure(ViewData currentView)
+        {
+            if (currentView == ViewData.Vacctinations)
+            {
+                gridView.OptionsView.NewItemRowPosition = NewItemRowPosition.None;
+                gridView.NewItemRowText = string.Empty;
+
+                gridView.OptionsBehavior.Editable = false;
+                gridView.OptionsBehavior.EditingMode = GridEditingMode.Default;
+            }
+            else
+            {
+                gridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Top;
+                gridView.NewItemRowText = "Клацніть тут щоб добавити новий запис...";
+
+                gridView.OptionsBehavior.Editable = true;
+                gridView.OptionsBehavior.EditingMode = GridEditingMode.EditForm;
+            }
         }
 
         private void LoadPatients()
@@ -361,10 +450,5 @@ namespace AuditVaccinationPatientsApp
         {
             Data.Helper.ShowAbout(this);
         }
-
-
-
-
-
     }
 }

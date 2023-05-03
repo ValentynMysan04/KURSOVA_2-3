@@ -212,6 +212,7 @@ namespace AuditVaccinationPatientsApp
             // 
             // svgImageCollection1
             // 
+            this.svgImageCollection1.Add("actions_refresh", "actions_refresh", typeof(AuditVaccinationPatientsApp.Properties.Resources));
             this.svgImageCollection1.Add("actions_addcircled", "actions_addcircled", typeof(AuditVaccinationPatientsApp.Properties.Resources));
             this.svgImageCollection1.Add("actions_deletecircled", "actions_deletecircled", typeof(AuditVaccinationPatientsApp.Properties.Resources));
             this.svgImageCollection1.Add("editnames", "editnames", typeof(AuditVaccinationPatientsApp.Properties.Resources));

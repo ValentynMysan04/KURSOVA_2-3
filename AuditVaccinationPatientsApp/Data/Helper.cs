@@ -11,6 +11,7 @@ namespace AuditVaccinationPatientsApp.Data
     {
 
         public static string GetConfirmCaption => "Підтвердіть операцію";
+        public static string GetNotificationCaption => "Попередження";
 
         public static string GetMenuCaption(ViewData currentView, RowState action)
         {
@@ -28,7 +29,8 @@ namespace AuditVaccinationPatientsApp.Data
                         case RowState.Delete:
                             return "Видалити картку пацієнта";
                         default:
-                            return $"{currentView} {action}";
+                            return $"Оновити картки пацієнтів";
+                            //return $"{currentView} {action}";
                     }
                 case ViewData.Vacctinations:
                     switch (action)
@@ -40,7 +42,8 @@ namespace AuditVaccinationPatientsApp.Data
                         case RowState.Delete:
                             return "Видалити вакцинацію";
                         default:
-                            return $"{currentView} {action}";
+                            return $"Оновити вакцинації пацієнта";
+                            //return $"{currentView} {action}";
                     }
                 case ViewData.Vaccines:
                     switch (action)
@@ -52,7 +55,8 @@ namespace AuditVaccinationPatientsApp.Data
                         case RowState.Delete:
                             return "Видалити вакцину";
                         default:
-                            return $"{currentView} {action}";
+                            return $"Оновити вакцини";
+                            //return $"{currentView} {action}";
                     }
                 case ViewData.Doctors:
                     switch (action)
@@ -64,7 +68,8 @@ namespace AuditVaccinationPatientsApp.Data
                         case RowState.Delete:
                             return "Видалити картку лікаря";
                         default:
-                            return $"{currentView} {action}";
+                            return $"Оновити картки лікарів";
+                            //return $"{currentView} {action}";
                     }
                 default:
                     return $"{currentView}";
@@ -107,7 +112,7 @@ namespace AuditVaccinationPatientsApp.Data
             message.Append("Author:  Valentyn Mysan");
             message.Append(Environment.NewLine);
 
-            if (XtraMessageBox.Show(owner, message.ToString(), caption, MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK);
+            if (XtraMessageBox.Show(owner, message.ToString(), caption, MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK) { }
         }
     }
 }
